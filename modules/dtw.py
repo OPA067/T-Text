@@ -39,7 +39,6 @@ class fast_dtw(nn.Module):
                 s_feat = c_feats[m].detach().cpu().numpy()
                 f_feat = f_feats[n].detach().cpu().numpy()
                 _, path = self.fastdtw(s_feat, f_feat)
-                print("===>>>", path)
                 for (i, j) in path:
                     mask[m, n, i, j] = 1
         return mask
